@@ -1,0 +1,55 @@
+{
+  "name": "infoskjerm",
+  "version": "1.0.0",
+  "description": "Infoskjerm for Abakus, Webkom. Written with Next.js",
+  "main": "index.js",
+  "repository": "https://github.com/webkom/infoskjerm",
+  "author": "Abakus Webkom <webkom@abakus.no>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "export": "next export",
+    "lint:prettier": "prettier '**/*.{js,css}' --list-different",
+    "lint:eslint": "eslint . --ignore-path .prettierignore",
+    "lint": "yarn lint:prettier && yarn lint:eslint && yarn flow",
+    "prettier": "prettier '**/*.{js,css}' --write",
+    "flow": "flow --quiet"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-brands-svg-icons": "^5.5.0",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-source-maps": "0.0.4-canary.1",
+    "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.6",
+    "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.24.0",
+    "next": "^8.1.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-moment-proptypes": "^1.6.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-config-react-app": "^4.0.0",
+    "eslint-plugin-flowtype": "^3.8.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "eslint-plugin-relay": "^1.3.1",
+    "flow-bin": "^0.98.1",
+    "prettier": "^1.17.0"
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}

@@ -1,0 +1,35 @@
+html,
+body {
+  color: #fff;
+  background-color: #11171a;
+  margin: 0;
+  font-family: rawline;
+}
+iframe {
+  width: 100%;
+  overflow: hidden;
+  background-color: #11171a;
+}
+.container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.frameContainer {
+  display: flex;
+  height: 100vh;
+  width: 50vw;
+}
+
+.innerContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.innerContainer .frameContainer {
+  display: flex;
+  height: 50vh;
+  width: 50vw;
+}
