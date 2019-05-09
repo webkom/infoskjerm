@@ -61,7 +61,7 @@ const translateStatusType = eventStatusType => {
       return 'Åpent arrangement';
     case 'INFINITE':
       return 'Åpent med påmelding';
-    case 'Normal':
+    case 'NORMAL':
       return 'Vanlig påmelding';
     default:
       return `Ukjent (${eventStatusType})`;
