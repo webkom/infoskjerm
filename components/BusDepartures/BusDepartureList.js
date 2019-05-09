@@ -42,11 +42,11 @@ const styles = theme => ({
   directionText: {
     fontWeight: 'bold'
   },
-    walkTime: {
-        display: 'flex',
-        alignItems: 'center',
-        textAlign: 'right'
-    }
+  walkTime: {
+    display: 'flex',
+    alignItems: 'center',
+    textAlign: 'right'
+  }
 });
 
 const formatDeparture = departure => ({
@@ -118,8 +118,8 @@ class BusDepartureList extends Component {
               Sentrum
             </Grid>
             <Grid item xs={2} className={classes.walkTime}>
-                <DirectionsWalk />
-                {walkTime}
+              <DirectionsWalk />
+              {walkTime}
             </Grid>
           </Grid>
           <Grid
