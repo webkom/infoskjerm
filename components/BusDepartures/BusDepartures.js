@@ -36,11 +36,13 @@ const BusDepatures = ({ classes }) => (
       <BusDepartureList
         apiUrl={GLOSHAUGEN_FROM_CENTRUM_API_URL}
         stopName={'Gløshaugen'}
+        walkTime={'5 min'}
         isGoingTowardsCentrum={false}
       />
       <BusDepartureList
         apiUrl={GLOSHAUGEN_TO_CENTRUM_API_URL}
         stopName={'Gløshaugen'}
+        walkTime={'5 min'}
         isGoingTowardsCentrum={true}
       />
     </Grid>
@@ -48,11 +50,13 @@ const BusDepatures = ({ classes }) => (
       <BusDepartureList
         apiUrl={PROFBROCHS_FROM_CENTRUM_API_URL}
         stopName={'Prof. Brochs gate'}
+        walkTime={'6 min'}
         isGoingTowardsCentrum={false}
       />
       <BusDepartureList
         apiUrl={PROFBROCHS_TO_CENTRUM_API_URL}
         stopName={'Prof. Brochs gate'}
+        walkTime={'6 min'}
         isGoingTowardsCentrum={true}
       />
     </Grid>

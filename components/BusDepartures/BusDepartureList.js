@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import DirectionsWalk from '@material-ui/icons/DirectionsWalk';
 import moment from 'moment';
 import BusDeparture from './BusDeparture';
 
@@ -28,7 +29,6 @@ const styles = theme => ({
     height: '25%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
     width: '100%',
     padding: '10px',
     backgroundColor: theme.palette.primary.main,
@@ -41,7 +41,12 @@ const styles = theme => ({
   },
   directionText: {
     fontWeight: 'bold'
-  }
+  },
+    walkTime: {
+        display: 'flex',
+        alignItems: 'center',
+        textAlign: 'right'
+    }
 });
 
 const formatDeparture = departure => ({
@@ -89,7 +94,7 @@ class BusDepartureList extends Component {
   }
 
   render() {
-    const { classes, stopName, isGoingTowardsCentrum } = this.props;
+    const { classes, stopName, walkTime, isGoingTowardsCentrum } = this.props;
     const { departures } = this.state;
     return (
       <div
@@ -104,14 +109,18 @@ class BusDepartureList extends Component {
             isGoingTowardsCentrum && classes.innerRightContainer
           )}
         >
-          <Grid item className={classes.header}>
-            <div>
+          <Grid item container className={classes.header}>
+            <Grid item xs={10}>
               {stopName} ·{' '}
               <span className={classes.directionText}>
                 {isGoingTowardsCentrum ? 'Til' : 'Fra'}
               </span>{' '}
               Sentrum
-            </div>
+            </Grid>
+            <Grid item xs={2} className={classes.walkTime}>
+                <DirectionsWalk />
+                {walkTime}
+            </Grid>
           </Grid>
           <Grid
             item
@@ -137,6 +146,7 @@ class BusDepartureList extends Component {
 BusDepartureList.propTypes = {
   classes: PropTypes.object.isRequired,
   stopName: PropTypes.string.isRequired,
+  walkTime: PropTypes.string.isRequired,
   apiUrl: PropTypes.string.isRequired,
   isGoingTowardsCentrum: PropTypes.bool.isRequired
 };
