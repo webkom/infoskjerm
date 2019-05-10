@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'next/router';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -44,45 +45,53 @@ const styles = theme => ({
   }
 });
 
-const Index = ({ classes }) => (
-  <MuiThemeProvider theme={darkTheme}>
-    <div className={classes.container}>
-      <div
-        className={classNames(classes.frameContainer, classes.leftContainer)}
-      >
-        <iframe
-          id="webkom-dashboard_frame"
-          name="webkom-dashboard_frame"
-          title="Webkom Dashboard"
-          src={WEBKOM_DASHBOARD_URL}
-          scrolling="no"
-          frameBorder="0"
-        />
-      </div>
-      <div
-        className={classNames(classes.frameContainer, classes.rightContainer)}
-      >
-        <div className={classes.innerContainer}>
-          <div
-            className={classNames(
-              classes.innerFrameContainer,
-              classes.topContainer
-            )}
-          >
-            <Events />
-          </div>
-          <div
-            className={classNames(
-              classes.innerFrameContainer,
-              classes.bottomContainer
-            )}
-          >
-            <BusDepartures />
+const Index = ({ classes, router }) => {
+  const hideMediaProgressBar = router.query.hideMediaProgressBar !== undefined;
+  let dashboardUrl = WEBKOM_DASHBOARD_URL;
+  if (hideMediaProgressBar) {
+    dashboardUrl += '/?hideMediaProgressBar';
+  }
+
+  return (
+    <MuiThemeProvider theme={darkTheme}>
+      <div className={classes.container}>
+        <div
+          className={classNames(classes.frameContainer, classes.leftContainer)}
+        >
+          <iframe
+            id="webkom-dashboard_frame"
+            name="webkom-dashboard_frame"
+            title="Webkom Dashboard"
+            src={dashboardUrl}
+            scrolling="no"
+            frameBorder="0"
+          />
+        </div>
+        <div
+          className={classNames(classes.frameContainer, classes.rightContainer)}
+        >
+          <div className={classes.innerContainer}>
+            <div
+              className={classNames(
+                classes.innerFrameContainer,
+                classes.topContainer
+              )}
+            >
+              <Events />
+            </div>
+            <div
+              className={classNames(
+                classes.innerFrameContainer,
+                classes.bottomContainer
+              )}
+            >
+              <BusDepartures />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </MuiThemeProvider>
-);
+    </MuiThemeProvider>
+  );
+};
 
-export default withStyles(styles)(Index);
+export default withStyles(styles)(withRouter(Index));
