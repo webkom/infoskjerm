@@ -46,7 +46,9 @@ const styles = theme => ({
 });
 
 const Index = ({ classes, router }) => {
-  const hideMediaProgressBar = router.query.hideMediaProgressBar !== undefined && router.query.hideMediaProgressBar !== false;
+  const hideMediaProgressBar =
+    router.query.hideMediaProgressBar !== undefined &&
+    router.query.hideMediaProgressBar !== false;
   let dashboardUrl = WEBKOM_DASHBOARD_URL;
   if (hideMediaProgressBar) {
     dashboardUrl += '/?hideMediaProgressBar';
