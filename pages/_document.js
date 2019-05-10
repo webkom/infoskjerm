@@ -6,6 +6,11 @@ export default class Default extends Document {
   render() {
     return (
       <html lang="nb">
+        <hello
+          dangerouslySetInnerHTML={{
+            __html: '<!-- made with 🍺 by webkom -->'
+          }}
+        />
         <Head>
           <meta charSet="utf-8" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
