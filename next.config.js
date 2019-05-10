@@ -22,7 +22,7 @@ module.exports = withSourceMaps(
     },
     exportPathMap: function() {
       return {
-        '/': { page: '/' }
+        '/': { page: '/', query: { hideMediaProgressBar: false }  }
       };
     }
   })

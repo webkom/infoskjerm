@@ -15,14 +15,20 @@ ENV RELEASE ${RELEASE}
 
 COPY . /app
 RUN yarn build
-RUN yarn export
 
 # Production env
-FROM nginx:1.14.2-alpine
+FROM node:10-alpine
 MAINTAINER Abakus Webkom <webkom@abakus.no>
+RUN mkdir /app
+WORKDIR /app/
 
-COPY --from=builder /app/out /usr/share/nginx/html
-EXPOSE 80
+ARG RELEASE
+ENV RELEASE ${RELEASE}
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+COPY --from=builder /app/package.json .
+COPY --from=builder /app/yarn.lock .
+COPY --from=builder /app/static static
+RUN yarn --prod
+COPY --from=builder /app/.next .next
 
+ENTRYPOINT ["yarn", "start"]
