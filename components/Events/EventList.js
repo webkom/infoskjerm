@@ -25,7 +25,7 @@ const styles = theme => ({
     textTransform: 'uppercase'
   },
   events: {
-    display: 'flow-root',
+    display: 'inline-block',
     height: '87.5%',
     backgroundColor: theme.palette.primary.light
   },
