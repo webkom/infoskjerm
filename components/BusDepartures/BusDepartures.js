@@ -5,8 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import {
   GLOSHAUGEN_TO_CENTRUM_API_URL,
   GLOSHAUGEN_FROM_CENTRUM_API_URL,
-  PROFBROCHS_TO_CENTRUM_API_URL,
-  PROFBROCHS_FROM_CENTRUM_API_URL
+  HESTHAGEN_TO_CENTRUM_API_URL,
+  HESTHAGEN_FROM_CENTRUM_API_URL
 } from './conf';
 import BusDepartureList from './BusDepartureList';
 
@@ -48,14 +48,14 @@ const BusDepatures = ({ classes }) => (
     </Grid>
     <Grid item className={classes.bottomContainer}>
       <BusDepartureList
-        apiUrl={PROFBROCHS_FROM_CENTRUM_API_URL}
-        stopName={'Prof. Brochs gate'}
+        apiUrl={HESTHAGEN_FROM_CENTRUM_API_URL}
+        stopName={'Hesthagen'}
         walkTime={'6 min'}
         isGoingTowardsCentrum={false}
       />
       <BusDepartureList
-        apiUrl={PROFBROCHS_TO_CENTRUM_API_URL}
-        stopName={'Prof. Brochs gate'}
+        apiUrl={HESTHAGEN_TO_CENTRUM_API_URL}
+        stopName={'Hesthagen'}
         walkTime={'6 min'}
         isGoingTowardsCentrum={true}
       />
